@@ -1,6 +1,6 @@
 import { view, Component, Events, Store } from '@storefront/core';
 
-@view('gb-page-size', require('./index.html'), require('./index.css'))
+@view('gb-page-size', require('./index.html'))
 class PageSize extends Component {
 
   state: PageSize.State = {
