@@ -4,6 +4,6 @@ import suite from './_suite';
 
 suite('package', ({ expect }) => {
   it('should expose PageSize', () => {
-    expect(pkg).to.eq(PageSize);
+    expect(pkg.PageSize).to.eq(PageSize);
   });
 });
