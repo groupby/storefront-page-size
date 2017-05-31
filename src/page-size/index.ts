@@ -1,15 +1,14 @@
-import { view, Component, Events, Store } from '@storefront/core';
+import { tag, Events, Store, Tag } from '@storefront/core';
 
-@view('gb-page-size', require('./index.html'))
-class PageSize extends Component {
+@tag('gb-page-size', require('./index.html'))
+class PageSize {
 
   state: PageSize.State = {
     pageSizes: [],
     onSelect: (index) => this.flux.resize(this.state.pageSizes[index].value)
   };
 
-  constructor() {
-    super();
+  init() {
     this.flux.on(Events.PAGE_SIZE_UPDATED, this.updatePageSizes);
   }
 
@@ -33,14 +32,17 @@ class PageSize extends Component {
   }
 }
 
+interface PageSize extends Tag<any, PageSize.State> { }
 namespace PageSize {
   export interface State {
-    pageSizes: Array<{
-      value: number,
-      label: number,
-      selected?: boolean
-    }>;
+    pageSizes: Option[];
     onSelect(index: number): void;
+  }
+
+  export interface Option {
+    value: number;
+    label: number;
+    selected?: boolean;
   }
 }
 
