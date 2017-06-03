@@ -2,10 +2,16 @@ import { Events } from '@storefront/core';
 import PageSize from '../../src/page-size';
 import suite from './_suite';
 
-suite('PageSize', ({ expect, spy }) => {
+suite('PageSize', ({ expect, spy, stub }) => {
   let pageSize: PageSize;
+  let selectPageSizesStub: sinon.SinonStub;
 
-  beforeEach(() => pageSize = new PageSize());
+  beforeEach(() => {
+    PageSize.prototype.flux = <any>{ store: { getState: () => ({ data: { page: { sizes: {} } } }) } };
+    selectPageSizesStub = stub(PageSize.prototype, 'selectPageSizes');
+    pageSize = new PageSize();
+  });
+  afterEach(() => delete PageSize.prototype.flux);
 
   describe('init()', () => {
     it('should listen for PAGE_SIZE_UPDATED', () => {
@@ -15,34 +21,6 @@ suite('PageSize', ({ expect, spy }) => {
       pageSize.init();
 
       expect(on.calledWith(Events.PAGE_SIZE_UPDATED, pageSize.updatePageSizes)).to.be.true;
-    });
-  });
-
-  describe('onBeforeMount()', () => {
-    it('should update state', () => {
-      const sizes = ['a', 'b'];
-      const selected = ['c', 'd'];
-      const state = { data: { page: { sizes } } };
-      const selectPageSizes = pageSize.selectPageSizes = spy(() => selected);
-      const getState = spy(() => state);
-      pageSize.state = <any>{ e: 'f' };
-      pageSize.flux = <any>{ store: { getState } };
-      pageSize.expose = () => null;
-
-      pageSize.onBeforeMount();
-
-      expect(selectPageSizes.calledWith(sizes)).to.be.true;
-      expect(pageSize.state).to.eql({ e: 'f', pageSizes: selected });
-    });
-
-    it('should call expose()', () => {
-      const expose = pageSize.expose = spy();
-      pageSize.selectPageSizes = () => null;
-      pageSize.flux = <any>{ store: { getState: () => ({ data: { page: { sizes: [] } } }) } };
-
-      pageSize.onBeforeMount();
-
-      expect(expose.calledWith('pageSize')).to.be.true;
     });
   });
 
@@ -61,6 +39,8 @@ suite('PageSize', ({ expect, spy }) => {
   });
 
   describe('selectPageSizes()', () => {
+    beforeEach(() => selectPageSizesStub.restore());
+
     it('should remap page sizes to options', () => {
       const state: any = {
         items: [12, 14, 16],
