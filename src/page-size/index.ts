@@ -1,23 +1,16 @@
-import { tag, Events, Store, Tag } from '@storefront/core';
+import { alias, tag, Events, Selectors, Store, Tag } from '@storefront/core';
 
+@alias('pageSize')
 @tag('gb-page-size', require('./index.html'))
 class PageSize {
 
   state: PageSize.State = {
-    pageSizes: [],
+    pageSizes: this.selectPageSizes(this.flux.store.getState().data.page.sizes),
     onSelect: (index) => this.flux.resize(this.state.pageSizes[index].value)
   };
 
   init() {
     this.flux.on(Events.PAGE_SIZE_UPDATED, this.updatePageSizes);
-  }
-
-  onBeforeMount() {
-    this.state = {
-      ...this.state,
-      pageSizes: this.selectPageSizes(this.flux.store.getState().data.page.sizes)
-    };
-    this.expose('pageSize');
   }
 
   updatePageSizes = (state: Store.SelectableList<number>) =>
