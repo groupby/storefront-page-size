@@ -20,7 +20,7 @@ suite('PageSize', ({ expect, spy, stub }) => {
 
       pageSize.init();
 
-      expect(on.calledWith(Events.PAGE_SIZE_UPDATED, pageSize.updatePageSizes)).to.be.true;
+      expect(on).to.be.calledWith(Events.PAGE_SIZE_UPDATED, pageSize.updatePageSizes);
     });
   });
 
@@ -33,8 +33,8 @@ suite('PageSize', ({ expect, spy, stub }) => {
 
       pageSize.updatePageSizes(state);
 
-      expect(selectPageSizes.calledWith(state)).to.be.true;
-      expect(set.calledWith({ pageSizes: selected }));
+      expect(selectPageSizes).to.be.calledWith(state);
+      expect(set).to.be.calledWith({ pageSizes: selected });
     });
   });
 
