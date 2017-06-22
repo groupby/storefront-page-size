@@ -6,7 +6,7 @@ class PageSize {
 
   state: PageSize.State = {
     pageSizes: this.selectPageSizes(this.flux.store.getState().data.page.sizes),
-    onSelect: (index) => this.flux.resize(this.state.pageSizes[index].value)
+    onSelect: (index) => this.actions.updatePageSize(this.state.pageSizes[index].value)
   };
 
   init() {

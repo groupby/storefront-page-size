@@ -25,13 +25,13 @@ suite('PageSize', ({ expect, spy, stub }) => {
 
       describe('onSelect()', () => {
         it('should call flux.resize()', () => {
-          const resize = spy();
-          pageSize.flux = <any>{ resize };
+          const updatePageSize = spy();
+          pageSize.actions = <any>{ updatePageSize };
           pageSize.state.pageSizes = <any[]>[{ value: 20 }, { value: 40 }, { value: 80 }];
 
           pageSize.state.onSelect(1);
 
-          expect(resize).to.be.calledWith(40);
+          expect(updatePageSize).to.be.calledWith(40);
         });
       });
     });
