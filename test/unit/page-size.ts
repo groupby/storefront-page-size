@@ -24,7 +24,7 @@ suite('PageSize', ({ expect, spy, stub }) => {
       });
 
       describe('onSelect()', () => {
-        it('should call flux.resize()', () => {
+        it('should call actions.updatePageSize()', () => {
           const updatePageSize = spy();
           pageSize.actions = <any>{ updatePageSize };
           pageSize.state.pageSizes = <any[]>[{ value: 20 }, { value: 40 }, { value: 80 }];
