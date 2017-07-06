@@ -6,7 +6,7 @@ import { alias, configurable, tag, Events, Selectors, Store, Tag } from '@storef
 class PageSize {
 
   state: PageSize.State = {
-    pageSizes: this.selectPageSizes(this.flux.store.getState().data.page.sizes),
+    pageSizes: this.selectPageSizes(Selectors.pageSizes(this.flux.store.getState())),
     onSelect: (index) => this.actions.updatePageSize(this.state.pageSizes[index].value)
   };
 
