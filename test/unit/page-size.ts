@@ -1,16 +1,19 @@
-import { Events } from '@storefront/core';
+import { Events, Selectors } from '@storefront/core';
 import PageSize from '../../src/page-size';
 import suite from './_suite';
 
 const PAGE_SIZES = [10, 20, 30];
+const STATE = { y: 'z' };
 
 suite('PageSize', ({ expect, spy, stub, itShouldBeConfigurable, itShouldHaveAlias }) => {
   let pageSize: PageSize;
   let selectPageSizesStub: sinon.SinonStub;
+  let pageSizesSelector: sinon.SinonStub;
 
   beforeEach(() => {
-    PageSize.prototype.flux = <any>{ store: { getState: () => ({ data: { page: { sizes: PAGE_SIZES } } }) } };
+    PageSize.prototype.flux = <any>{ store: { getState: () => STATE } };
     selectPageSizesStub = stub(PageSize.prototype, 'selectPageSizes');
+    pageSizesSelector = stub(Selectors, 'pageSizes').returns(PAGE_SIZES);
     pageSize = new PageSize();
   });
   afterEach(() => delete PageSize.prototype.flux);
@@ -23,6 +26,7 @@ suite('PageSize', ({ expect, spy, stub, itShouldBeConfigurable, itShouldHaveAlia
       it('should set initial value', () => {
         const sizes = [15, 30, 50];
 
+        expect(pageSizesSelector).to.be.calledWith(STATE);
         expect(selectPageSizesStub).to.be.calledWith(PAGE_SIZES);
       });
 
