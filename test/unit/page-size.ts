@@ -4,7 +4,7 @@ import suite from './_suite';
 
 const PAGE_SIZES = [10, 20, 30];
 
-suite('PageSize', ({ expect, spy, stub }) => {
+suite('PageSize', ({ expect, spy, stub, itShouldBeConfigurable, itShouldHaveAlias }) => {
   let pageSize: PageSize;
   let selectPageSizesStub: sinon.SinonStub;
 
@@ -14,6 +14,9 @@ suite('PageSize', ({ expect, spy, stub }) => {
     pageSize = new PageSize();
   });
   afterEach(() => delete PageSize.prototype.flux);
+
+  itShouldBeConfigurable(PageSize);
+  itShouldHaveAlias(PageSize, 'pageSize');
 
   describe('constructor()', () => {
     describe('state', () => {

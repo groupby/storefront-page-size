@@ -1,5 +1,6 @@
-import { alias, tag, Events, Selectors, Store, Tag } from '@storefront/core';
+import { alias, configurable, tag, Events, Selectors, Store, Tag } from '@storefront/core';
 
+@configurable
 @alias('pageSize')
 @tag('gb-page-size', require('./index.html'))
 class PageSize {
