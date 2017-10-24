@@ -8,12 +8,12 @@ const STATE = { y: 'z' };
 suite('PageSize', ({ expect, spy, stub, itShouldBeConfigurable, itShouldHaveAlias }) => {
   let pageSize: PageSize;
   let selectPageSizesStub: sinon.SinonStub;
-  let pageSizesSelector: sinon.SinonStub;
+  let select: sinon.SinonSpy;
 
   beforeEach(() => {
     PageSize.prototype.flux = <any>{ store: { getState: () => STATE } };
     selectPageSizesStub = stub(PageSize.prototype, 'selectPageSizes');
-    pageSizesSelector = stub(Selectors, 'pageSizes').returns(PAGE_SIZES);
+    select = PageSize.prototype.select = spy(() => PAGE_SIZES);
     pageSize = new PageSize();
   });
   afterEach(() => delete PageSize.prototype.flux);
@@ -26,7 +26,7 @@ suite('PageSize', ({ expect, spy, stub, itShouldBeConfigurable, itShouldHaveAlia
       it('should set initial value', () => {
         const sizes = [15, 30, 50];
 
-        expect(pageSizesSelector).to.be.calledWith(STATE);
+        expect(select).to.be.calledWith(Selectors.pageSizes);
         expect(selectPageSizesStub).to.be.calledWith(PAGE_SIZES);
       });
 
