@@ -3,7 +3,6 @@ import PageSize from '../../src/page-size';
 import suite from './_suite';
 
 const PAGE_SIZES = [10, 20, 30];
-const STATE = { y: 'z' };
 
 suite('PageSize', ({ expect, spy, stub, itShouldBeConfigurable, itShouldHaveAlias }) => {
   let pageSize: PageSize;
@@ -11,7 +10,7 @@ suite('PageSize', ({ expect, spy, stub, itShouldBeConfigurable, itShouldHaveAlia
   let select: sinon.SinonSpy;
 
   beforeEach(() => {
-    PageSize.prototype.flux = <any>{ store: { getState: () => STATE } };
+    PageSize.prototype.flux = <any>{};
     selectPageSizesStub = stub(PageSize.prototype, 'selectPageSizes');
     select = PageSize.prototype.select = spy(() => PAGE_SIZES);
     pageSize = new PageSize();
