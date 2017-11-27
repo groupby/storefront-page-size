@@ -1,7 +1,6 @@
 import { alias, configurable, tag, Events, Selectors, Store, Tag } from '@storefront/core';
 import { PageSize } from '../';
 
-@configurable
 @alias('pageSize')
 @tag('gb-past-purchases-page-size', require('./index.html'))
 class PastPageSize extends PageSize {
