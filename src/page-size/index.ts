@@ -1,4 +1,4 @@
-import { alias, configurable, tag, Events, Selectors, Store, Tag } from '@storefront/core';
+import { alias, configurable, tag, Events, Selectors, Store, StoreSections, Tag } from '@storefront/core';
 
 @configurable
 @alias('pageSize')
@@ -10,8 +10,21 @@ class PageSize {
     onSelect: (index) => this.actions.updatePageSize(this.state.pageSizes[index].value)
   };
 
+  pastPurchaseState: PageSize.State = {
+    pageSizes: this.selectPageSizes(this.select(Selectors.pastPurchasePageSizes)),
+    onSelect: (index) => this.actions.updatePastPurchasePageSize(this.state.pageSizes[index].value)
+  };
+
   init() {
-    this.flux.on(Events.PAGE_SIZE_UPDATED, this.updatePageSizes);
+    switch (this.props.storeSection) {
+      case StoreSections.SEARCH:
+        this.flux.on(Events.PAGE_SIZE_UPDATED, this.updatePageSizes);
+        break;
+      case StoreSections.PAST_PURCHASES:
+        this.flux.on(Events.PAST_PURCHASE_PAGE_SIZE_UPDATED, this.updatePageSizes);
+        this.set(this.pastPurchaseState);
+        break;
+    }
   }
 
   updatePageSizes = (state: Store.SelectableList<number>) =>
