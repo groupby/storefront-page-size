@@ -1,4 +1,4 @@
-import { Events, Selectors } from '@storefront/core';
+import { Events, Selectors, StoreSections } from '@storefront/core';
 import PageSize from '../../src/page-size';
 import suite from './_suite';
 
@@ -7,6 +7,7 @@ const PAGE_SIZES = [10, 20, 30];
 suite('PageSize', ({ expect, spy, stub, itShouldBeConfigurable, itShouldHaveAlias }) => {
   let pageSize: PageSize;
   let selectPageSizesStub: sinon.SinonStub;
+  let selectPastPurchasePageSizesStub: sinon.SinonStub;
   let select: sinon.SinonSpy;
 
   beforeEach(() => {
@@ -23,34 +24,66 @@ suite('PageSize', ({ expect, spy, stub, itShouldBeConfigurable, itShouldHaveAlia
   describe('constructor()', () => {
     describe('state', () => {
       it('should set initial value', () => {
-        const sizes = [15, 30, 50];
-
-        expect(select).to.be.calledWith(Selectors.pageSizes);
-        expect(selectPageSizesStub).to.be.calledWith(PAGE_SIZES);
+        expect(pageSize.state.pageSizes).to.eql([]);
       });
 
       describe('onSelect()', () => {
-        it('should call actions.updatePageSize()', () => {
+        it('should call actions.updatePageSize() when in search section', () => {
           const updatePageSize = spy();
           pageSize.actions = <any>{ updatePageSize };
           pageSize.state.pageSizes = <any[]>[{ value: 20 }, { value: 40 }, { value: 80 }];
+          pageSize.props = { storeSection: StoreSections.SEARCH };
 
           pageSize.state.onSelect(1);
 
           expect(updatePageSize).to.be.calledWith(40);
+        });
+
+        it('should call actions.updatePastPurchasePageSize() when in past purchase section', () => {
+          const updatePastPurchasePageSize = spy();
+          pageSize.actions = <any>{ updatePastPurchasePageSize };
+          pageSize.state.pageSizes = <any[]>[{ value: 20 }, { value: 40 }, { value: 80 }];
+          pageSize.props = { storeSection: StoreSections.PAST_PURCHASES };
+
+          pageSize.state.onSelect(1);
+
+          expect(updatePastPurchasePageSize).to.be.calledWith(40);
         });
       });
     });
   });
 
   describe('init()', () => {
-    it('should listen for PAGE_SIZE_UPDATED', () => {
+    it('should listen for PAGE_SIZE_UPDATED when in search section', () => {
       const on = spy();
+      const pageSet = pageSize.set = spy();
+      const sizes = [15, 30, 50];
+      selectPageSizesStub.returns(sizes);
       pageSize.flux = <any>{ on };
+      pageSize.props = { storeSection: StoreSections.SEARCH };
 
       pageSize.init();
 
       expect(on).to.be.calledWith(Events.PAGE_SIZE_UPDATED, pageSize.updatePageSizes);
+      expect(select).to.be.calledWith(Selectors.pageSizes);
+      expect(selectPageSizesStub).to.be.calledWith(PAGE_SIZES);
+      expect(pageSet).to.be.calledWith({ pageSizes: sizes });
+    });
+
+    it('should listen for PAST_PURCHASE_PAGE_SIZE_UPDATED when in past purchase section', () => {
+      const on = spy();
+      const pageSet = pageSize.set = spy();
+      const sizes = [15, 30, 50];
+      selectPageSizesStub.returns(sizes);
+      pageSize.flux = <any>{ on };
+      pageSize.props = { storeSection: StoreSections.PAST_PURCHASES };
+
+      pageSize.init();
+
+      expect(on).to.be.calledWith(Events.PAST_PURCHASE_PAGE_SIZE_UPDATED, pageSize.updatePageSizes);
+      expect(select).to.be.calledWith(Selectors.pastPurchasePageSizes);
+      expect(selectPageSizesStub).to.be.calledWith(PAGE_SIZES);
+      expect(pageSet).to.be.calledWith({ pageSizes: sizes });
     });
   });
 
