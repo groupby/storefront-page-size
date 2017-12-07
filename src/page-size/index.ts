@@ -4,15 +4,18 @@ import { alias, configurable, tag, Events, Selectors, Store, StoreSections, Tag 
 @alias('pageSize')
 @tag('gb-page-size', require('./index.html'))
 class PageSize {
-
   state: PageSize.State = {
-    pageSizes: this.selectPageSizes(this.select(Selectors.pageSizes)),
-    onSelect: (index) => this.actions.updatePageSize(this.state.pageSizes[index].value)
-  };
-
-  pastPurchaseState: PageSize.State = {
-    pageSizes: this.selectPageSizes(this.select(Selectors.pastPurchasePageSizes)),
-    onSelect: (index) => this.actions.updatePastPurchasePageSize(this.state.pageSizes[index].value)
+    pageSizes: [],
+    onSelect: (index) => {
+      switch (this.props.storeSection) {
+        case StoreSections.SEARCH:
+          this.actions.updatePageSize(this.state.pageSizes[index].value);
+          break;
+        case StoreSections.PAST_PURCHASES:
+          this.actions.updatePastPurchasePageSize(this.state.pageSizes[index].value);
+          break;
+      }
+    }
   };
 
   init() {
@@ -22,7 +25,14 @@ class PageSize {
         break;
       case StoreSections.PAST_PURCHASES:
         this.flux.on(Events.PAST_PURCHASE_PAGE_SIZE_UPDATED, this.updatePageSizes);
-        this.set(this.pastPurchaseState);
+        break;
+    }
+    switch (this.props.storeSection) {
+      case StoreSections.SEARCH:
+        this.set({ pageSizes: this.selectPageSizes(this.select(Selectors.pageSizes)) });
+        break;
+      case StoreSections.PAST_PURCHASES:
+        this.set({ pageSizes: this.selectPageSizes(this.select(Selectors.pastPurchasePageSizes)) });
         break;
     }
   }
