@@ -36,7 +36,7 @@ suite('PageSize', ({ expect, spy, stub, itShouldBeConfigurable, itShouldHaveAlia
 
           pageSize.state.onSelect(1);
 
-          expect(updatePageSize).to.be.calledWith(40);
+          expect(updatePageSize).to.be.calledWithExactly(40);
         });
 
         it('should call actions.updatePastPurchasePageSize() when in past purchase section', () => {
@@ -47,7 +47,7 @@ suite('PageSize', ({ expect, spy, stub, itShouldBeConfigurable, itShouldHaveAlia
 
           pageSize.state.onSelect(1);
 
-          expect(updatePastPurchasePageSize).to.be.calledWith(40);
+          expect(updatePastPurchasePageSize).to.be.calledWithExactly(40);
         });
       });
     });
@@ -64,10 +64,10 @@ suite('PageSize', ({ expect, spy, stub, itShouldBeConfigurable, itShouldHaveAlia
 
       pageSize.init();
 
-      expect(on).to.be.calledWith(Events.PAGE_SIZE_UPDATED, pageSize.updatePageSizes);
-      expect(select).to.be.calledWith(Selectors.pageSizes);
-      expect(selectPageSizesStub).to.be.calledWith(PAGE_SIZES);
-      expect(pageSet).to.be.calledWith({ pageSizes: sizes });
+      expect(on).to.be.calledWithExactly(Events.PAGE_SIZE_UPDATED, pageSize.updatePageSizes);
+      expect(select).to.be.calledWithExactly(Selectors.pageSizes);
+      expect(selectPageSizesStub).to.be.calledWithExactly(PAGE_SIZES);
+      expect(pageSet).to.be.calledWithExactly({ pageSizes: sizes });
     });
 
     it('should listen for PAST_PURCHASE_PAGE_SIZE_UPDATED when in past purchase section', () => {
@@ -80,10 +80,10 @@ suite('PageSize', ({ expect, spy, stub, itShouldBeConfigurable, itShouldHaveAlia
 
       pageSize.init();
 
-      expect(on).to.be.calledWith(Events.PAST_PURCHASE_PAGE_SIZE_UPDATED, pageSize.updatePageSizes);
-      expect(select).to.be.calledWith(Selectors.pastPurchasePageSizes);
-      expect(selectPageSizesStub).to.be.calledWith(PAGE_SIZES);
-      expect(pageSet).to.be.calledWith({ pageSizes: sizes });
+      expect(on).to.be.calledWithExactly(Events.PAST_PURCHASE_PAGE_SIZE_UPDATED, pageSize.updatePageSizes);
+      expect(select).to.be.calledWithExactly(Selectors.pastPurchasePageSizes);
+      expect(selectPageSizesStub).to.be.calledWithExactly(PAGE_SIZES);
+      expect(pageSet).to.be.calledWithExactly({ pageSizes: sizes });
     });
   });
 
@@ -96,8 +96,8 @@ suite('PageSize', ({ expect, spy, stub, itShouldBeConfigurable, itShouldHaveAlia
 
       pageSize.updatePageSizes(state);
 
-      expect(selectPageSizes).to.be.calledWith(state);
-      expect(set).to.be.calledWith({ pageSizes: selected });
+      expect(selectPageSizes).to.be.calledWithExactly(state);
+      expect(set).to.be.calledWithExactly({ pageSizes: selected });
     });
   });
 
