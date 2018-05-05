@@ -55,32 +55,31 @@ suite('PageSize', ({ expect, spy, stub, itShouldBeConfigurable, itShouldHaveAlia
 
   describe('init()', () => {
     it('should listen for PAGE_SIZE_UPDATED when in search section', () => {
-      const on = spy();
+      const subscribe = pageSize.subscribe = spy();
       const pageSet = pageSize.set = spy();
       const sizes = [15, 30, 50];
       selectPageSizesStub.returns(sizes);
-      pageSize.flux = <any>{ on };
+      pageSize.flux = <any>{ subscribe };
       pageSize.props = { storeSection: StoreSections.SEARCH };
 
       pageSize.init();
 
-      expect(on).to.be.calledWithExactly(Events.PAGE_SIZE_UPDATED, pageSize.updatePageSizes);
+      expect(subscribe).to.be.calledWithExactly(Events.PAGE_SIZE_UPDATED, pageSize.updatePageSizes);
       expect(select).to.be.calledWithExactly(Selectors.pageSizes);
       expect(selectPageSizesStub).to.be.calledWithExactly(PAGE_SIZES);
       expect(pageSet).to.be.calledWithExactly({ pageSizes: sizes });
     });
 
     it('should listen for PAST_PURCHASE_PAGE_SIZE_UPDATED when in past purchase section', () => {
-      const on = spy();
+      const subscribe = pageSize.subscribe = spy();
       const pageSet = pageSize.set = spy();
       const sizes = [15, 30, 50];
       selectPageSizesStub.returns(sizes);
-      pageSize.flux = <any>{ on };
       pageSize.props = { storeSection: StoreSections.PAST_PURCHASES };
 
       pageSize.init();
 
-      expect(on).to.be.calledWithExactly(Events.PAST_PURCHASE_PAGE_SIZE_UPDATED, pageSize.updatePageSizes);
+      expect(subscribe).to.be.calledWithExactly(Events.PAST_PURCHASE_PAGE_SIZE_UPDATED, pageSize.updatePageSizes);
       expect(select).to.be.calledWithExactly(Selectors.pastPurchasePageSizes);
       expect(selectPageSizesStub).to.be.calledWithExactly(PAGE_SIZES);
       expect(pageSet).to.be.calledWithExactly({ pageSizes: sizes });

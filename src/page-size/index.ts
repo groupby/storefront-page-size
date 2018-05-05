@@ -21,17 +21,11 @@ class PageSize {
   init() {
     switch (this.props.storeSection) {
       case StoreSections.SEARCH:
-        this.flux.on(Events.PAGE_SIZE_UPDATED, this.updatePageSizes);
-        break;
-      case StoreSections.PAST_PURCHASES:
-        this.flux.on(Events.PAST_PURCHASE_PAGE_SIZE_UPDATED, this.updatePageSizes);
-        break;
-    }
-    switch (this.props.storeSection) {
-      case StoreSections.SEARCH:
+        this.subscribe(Events.PAGE_SIZE_UPDATED, this.updatePageSizes);
         this.set({ pageSizes: this.selectPageSizes(this.select(Selectors.pageSizes)) });
         break;
       case StoreSections.PAST_PURCHASES:
+        this.subscribe(Events.PAST_PURCHASE_PAGE_SIZE_UPDATED, this.updatePageSizes);
         this.set({ pageSizes: this.selectPageSizes(this.select(Selectors.pastPurchasePageSizes)) });
         break;
     }
