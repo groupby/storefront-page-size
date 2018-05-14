@@ -4,7 +4,7 @@ import suite from './_suite';
 
 const PAGE_SIZES = [10, 20, 30];
 
-suite('PageSize', ({ expect, spy, stub, itShouldBeConfigurable, itShouldHaveAlias }) => {
+suite('PageSize', ({ expect, spy, stub, itShouldBeConfigurable, itShouldProvideAlias }) => {
   let pageSize: PageSize;
   let selectPageSizesStub: sinon.SinonStub;
   let selectPastPurchasePageSizesStub: sinon.SinonStub;
@@ -19,7 +19,7 @@ suite('PageSize', ({ expect, spy, stub, itShouldBeConfigurable, itShouldHaveAlia
   afterEach(() => delete PageSize.prototype.flux);
 
   itShouldBeConfigurable(PageSize);
-  itShouldHaveAlias(PageSize, 'pageSize');
+  itShouldProvideAlias(PageSize, 'pageSize');
 
   describe('constructor()', () => {
     describe('state', () => {
@@ -55,8 +55,8 @@ suite('PageSize', ({ expect, spy, stub, itShouldBeConfigurable, itShouldHaveAlia
 
   describe('init()', () => {
     it('should listen for PAGE_SIZE_UPDATED when in search section', () => {
-      const subscribe = pageSize.subscribe = spy();
-      const pageSet = pageSize.set = spy();
+      const subscribe = (pageSize.subscribe = spy());
+      const pageSet = (pageSize.set = spy());
       const sizes = [15, 30, 50];
       selectPageSizesStub.returns(sizes);
       pageSize.flux = <any>{ subscribe };
@@ -71,8 +71,8 @@ suite('PageSize', ({ expect, spy, stub, itShouldBeConfigurable, itShouldHaveAlia
     });
 
     it('should listen for PAST_PURCHASE_PAGE_SIZE_UPDATED when in past purchase section', () => {
-      const subscribe = pageSize.subscribe = spy();
-      const pageSet = pageSize.set = spy();
+      const subscribe = (pageSize.subscribe = spy());
+      const pageSet = (pageSize.set = spy());
       const sizes = [15, 30, 50];
       selectPageSizesStub.returns(sizes);
       pageSize.props = { storeSection: StoreSections.PAST_PURCHASES };
@@ -90,8 +90,8 @@ suite('PageSize', ({ expect, spy, stub, itShouldBeConfigurable, itShouldHaveAlia
     it('should set pageSizes', () => {
       const state: any = { a: 'b' };
       const selected = ['c', 'd'];
-      const selectPageSizes = pageSize.selectPageSizes = spy(() => selected);
-      const set = pageSize.set = spy();
+      const selectPageSizes = (pageSize.selectPageSizes = spy(() => selected));
+      const set = (pageSize.set = spy());
 
       pageSize.updatePageSizes(state);
 
@@ -106,7 +106,7 @@ suite('PageSize', ({ expect, spy, stub, itShouldBeConfigurable, itShouldHaveAlia
     it('should remap page sizes to options', () => {
       const state: any = {
         items: [12, 14, 16],
-        selected: 2
+        selected: 2,
       };
 
       const pageSizes = pageSize.selectPageSizes(state);
@@ -114,7 +114,7 @@ suite('PageSize', ({ expect, spy, stub, itShouldBeConfigurable, itShouldHaveAlia
       expect(pageSizes).to.eql([
         { value: 12, label: 12, selected: false },
         { value: 14, label: 14, selected: false },
-        { value: 16, label: 16, selected: true }
+        { value: 16, label: 16, selected: true },
       ]);
     });
   });
