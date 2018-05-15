@@ -1,7 +1,7 @@
-import { alias, configurable, tag, Events, Selectors, Store, StoreSections, Tag } from '@storefront/core';
+import { configurable, provide, tag, Events, Selectors, Store, StoreSections, Tag } from '@storefront/core';
 
 @configurable
-@alias('pageSize')
+@provide('pageSize')
 @tag('gb-page-size', require('./index.html'))
 class PageSize {
   state: PageSize.State = {
@@ -15,7 +15,7 @@ class PageSize {
           this.actions.updatePastPurchasePageSize(this.state.pageSizes[index].value);
           break;
       }
-    }
+    },
   };
 
   init() {
@@ -31,19 +31,18 @@ class PageSize {
     }
   }
 
-  updatePageSizes = (state: Store.SelectableList<number>) =>
-    this.set({ pageSizes: this.selectPageSizes(state) })
+  updatePageSizes = (state: Store.SelectableList<number>) => this.set({ pageSizes: this.selectPageSizes(state) });
 
   selectPageSizes(state: Store.SelectableList<number>) {
     return state.items.map((pageSize, index) => ({
       value: pageSize,
       label: pageSize,
-      selected: index === state.selected
+      selected: index === state.selected,
     }));
   }
 }
 
-interface PageSize extends Tag<any, PageSize.State> { }
+interface PageSize extends Tag<any, PageSize.State> {}
 namespace PageSize {
   export interface State {
     pageSizes: Option[];
