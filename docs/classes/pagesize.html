@@ -116,6 +116,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="pagesize.html#_removeeventhandlers" class="tsd-kind-icon">_remove<wbr>Event<wbr>Handlers</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="pagesize.html#isinitialized" class="tsd-kind-icon">is<wbr>Initialized</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="pagesize.html#props" class="tsd-kind-icon">props</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="pagesize.html#_aliases" class="tsd-kind-icon">_aliases</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="pagesize.html#_riot_id" class="tsd-kind-icon">_riot_<wbr>id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="pagesize.html#actions" class="tsd-kind-icon">actions</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="pagesize.html#config" class="tsd-kind-icon">config</a></li>
@@ -143,6 +144,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="pagesize.html#subscribe" class="tsd-kind-icon">subscribe</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="pagesize.html#subscribeonce" class="tsd-kind-icon">subscribe<wbr>Once</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="pagesize.html#updatepagesizes" class="tsd-kind-icon">update<wbr>Page<wbr>Sizes</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="pagesize.html#expose" class="tsd-kind-icon">expose</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-static"><a href="pagesize.html#init-1" class="tsd-kind-icon">init</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="pagesize.html#mixin" class="tsd-kind-icon">mixin</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="pagesize.html#mount" class="tsd-kind-icon">mount</a></li>
@@ -157,8 +159,10 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="pagesize.html#one" class="tsd-kind-icon">one</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="pagesize.html#shouldupdate" class="tsd-kind-icon">should<wbr>Update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="pagesize.html#trigger" class="tsd-kind-icon">trigger</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="pagesize.html#unexpose" class="tsd-kind-icon">unexpose</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="pagesize.html#unmount" class="tsd-kind-icon">unmount</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="pagesize.html#update" class="tsd-kind-icon">update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="pagesize.html#updatealias" class="tsd-kind-icon">update<wbr>Alias</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -254,6 +258,17 @@
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="_aliases" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagOptional">Optional</span> _aliases</h3>
+					<div class="tsd-signature tsd-kind-icon">_aliases<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Tag._aliases</p>
+						<ul>
+							<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:33</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 					<a name="_riot_id" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> _riot_<wbr>id</h3>
 					<div class="tsd-signature tsd-kind-icon">_riot_<wbr>id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
@@ -282,7 +297,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from Mixin.config</p>
 						<ul>
-							<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:92</li>
+							<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:100</li>
 						</ul>
 					</aside>
 				</section>
@@ -293,7 +308,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from Mixin.flux</p>
 						<ul>
-							<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:93</li>
+							<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:101</li>
 						</ul>
 					</aside>
 				</section>
@@ -316,7 +331,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from Mixin.log</p>
 						<ul>
-							<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:95</li>
+							<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:103</li>
 						</ul>
 					</aside>
 				</section>
@@ -383,7 +398,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from Mixin.services</p>
 						<ul>
-							<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:94</li>
+							<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:102</li>
 						</ul>
 					</aside>
 				</section>
@@ -464,7 +479,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/groupby/storefront-page-size/blob/16e33fc/src/page-size/index.ts#L21">src/page-size/index.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/groupby/storefront-page-size/blob/3f9a908/src/page-size/index.ts#L21">src/page-size/index.ts:21</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -580,7 +595,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/groupby/storefront-page-size/blob/16e33fc/src/page-size/index.ts#L36">src/page-size/index.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/groupby/storefront-page-size/blob/3f9a908/src/page-size/index.ts#L36">src/page-size/index.ts:36</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -597,7 +612,7 @@
 					<a name="set" class="tsd-anchor"></a>
 					<h3>set</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">set<span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/pagesize.state.html" class="tsd-signature-type">State</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/pagesize.state.html" class="tsd-signature-type">State</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -610,7 +625,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>state: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/pagesize.state.html" class="tsd-signature-type">State</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>state: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/pagesize.state.html" class="tsd-signature-type">State</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -726,13 +741,40 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/groupby/storefront-page-size/blob/16e33fc/src/page-size/index.ts#L34">src/page-size/index.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/groupby/storefront-page-size/blob/3f9a908/src/page-size/index.ts#L34">src/page-size/index.ts:34</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>state: <span class="tsd-signature-type">SelectableList</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="expose" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> expose</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">expose<span class="tsd-signature-symbol">(</span>alias<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Tag.expose</p>
+								<ul>
+									<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:34</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>alias: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> value: <span class="tsd-signature-type">any</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -902,7 +944,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Lifecycle.onBeforeMount</p>
 								<ul>
-									<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:79</li>
+									<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:87</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -925,7 +967,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Lifecycle.onBeforeUnmount</p>
 								<ul>
-									<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:88</li>
+									<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:96</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -943,7 +985,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Lifecycle.onMount</p>
 								<ul>
-									<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:80</li>
+									<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:88</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -961,7 +1003,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Lifecycle.onUnmount</p>
 								<ul>
-									<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:89</li>
+									<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:97</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -979,7 +1021,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Lifecycle.onUpdate</p>
 								<ul>
-									<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:84</li>
+									<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:92</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1008,7 +1050,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Lifecycle.onUpdated</p>
 								<ul>
-									<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:87</li>
+									<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:95</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1065,7 +1107,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Lifecycle.shouldUpdate</p>
 								<ul>
-									<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:81</li>
+									<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:89</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1121,6 +1163,30 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="unexpose" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> unexpose</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">unexpose<span class="tsd-signature-symbol">(</span>alias<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Tag.unexpose</p>
+								<ul>
+									<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:35</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>alias: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1188,6 +1254,33 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="updatealias" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> update<wbr>Alias</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">update<wbr>Alias<span class="tsd-signature-symbol">(</span>alias<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Tag.updateAlias</p>
+								<ul>
+									<li>Defined in node_modules/@storefront/core/dist/core/tag/index.d.ts:36</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>alias: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>value: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Object literals</h2>
@@ -1198,7 +1291,7 @@
 					<aside class="tsd-sources">
 						<p>Overrides Tag.state</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/groupby/storefront-page-size/blob/16e33fc/src/page-size/index.ts#L7">src/page-size/index.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/groupby/storefront-page-size/blob/3f9a908/src/page-size/index.ts#L7">src/page-size/index.ts:7</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -1207,7 +1300,7 @@
 						<div class="tsd-signature tsd-kind-icon">page<wbr>Sizes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/groupby/storefront-page-size/blob/16e33fc/src/page-size/index.ts#L8">src/page-size/index.ts:8</a></li>
+								<li>Defined in <a href="https://github.com/groupby/storefront-page-size/blob/3f9a908/src/page-size/index.ts#L8">src/page-size/index.ts:8</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1221,7 +1314,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/groupby/storefront-page-size/blob/16e33fc/src/page-size/index.ts#L9">src/page-size/index.ts:9</a></li>
+										<li>Defined in <a href="https://github.com/groupby/storefront-page-size/blob/3f9a908/src/page-size/index.ts#L9">src/page-size/index.ts:9</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1275,6 +1368,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="pagesize.html#props" class="tsd-kind-icon">props</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="pagesize.html#_aliases" class="tsd-kind-icon">_aliases</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 								<a href="pagesize.html#_riot_id" class="tsd-kind-icon">_riot_<wbr>id</a>
@@ -1342,6 +1438,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="pagesize.html#updatepagesizes" class="tsd-kind-icon">update<wbr>Page<wbr>Sizes</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="pagesize.html#expose" class="tsd-kind-icon">expose</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-static">
 								<a href="pagesize.html#init-1" class="tsd-kind-icon">init</a>
 							</li>
@@ -1385,10 +1484,16 @@
 								<a href="pagesize.html#trigger" class="tsd-kind-icon">trigger</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="pagesize.html#unexpose" class="tsd-kind-icon">unexpose</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 								<a href="pagesize.html#unmount" class="tsd-kind-icon">unmount</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 								<a href="pagesize.html#update" class="tsd-kind-icon">update</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="pagesize.html#updatealias" class="tsd-kind-icon">update<wbr>Alias</a>
 							</li>
 							<li class=" tsd-kind-object-literal tsd-parent-kind-class tsd-is-overwrite">
 								<a href="pagesize.html#state-1" class="tsd-kind-icon">state</a>
