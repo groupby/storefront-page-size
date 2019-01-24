@@ -1,4 +1,10 @@
-# StoreFront page-size
+# [MOVED] StoreFront page-size
+
+* * *
+
+**This repository has been moved to <https://github.com/groupby/storefront>.**
+
+* * *
 
 StoreFront `<gb-page-size>` component
 
